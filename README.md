@@ -1,25 +1,39 @@
 # MealPrep Kit - Ready-to-Cook Meal Delivery Website
 MealPrep Kit is a web-based application designed to make healthy home cooking easy and convenient. Inspired by platforms like DoFood, this website allows users to explore a menu of delicious, fresh, and healthy meal kits. Each selected dish comes with pre-portioned ingredients and step-by-step cooking instructions— no chopping required!
 
-🚀 Features
-🍛 Cuisines & Categories: Explore meals sorted by Indian and global cuisines.
+## 🚀 Features
 
-📦 Meal Kits: Each selection includes pre-cut vegetables, protein, spices, and instructions.
+**🍛 Cuisines & Categories:** Explore meals sorted by Indian and global cuisines.
 
-🛒 Add to Cart / Wishlist: Choose your meals and save favorites for later.
+**📦 Meal Kits:** Each selection includes pre-cut vegetables, protein, spices, and instructions.
 
-🧾 Instructions with Ingredients: View all ingredients and cooking instructions before ordering.
+**🛒 Add to Cart / Wishlist:** Choose your meals and save favorites for later.
 
-🛠️ Tech Stack
+**🧾 Instructions with Ingredients:** View all ingredients and cooking instructions before ordering.
+
+## 🛠️ Tech Stack
 
 Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
 
-⚙️ How to Run Locally
+## 📁 Project Structure
+
+/mealprep-kit
+│
+├── css/                      # Stylesheets
+├── html/                     # HTML files (pages like index, menu, etc.)
+├── img/                      # Images used in the project
+├── php/                      # PHP scripts for backend functionality
+├── README.md                 # Project documentation
+├── login_background.mp4
+├── background2_login.mp4
+└── README.md                 # Project documentation
+
+## ⚙️ How to Run Locally
 
 1.Clone this repo:
-    git clone https://github.com/yourusername/mealprep-kit.git
+    git clone https://github.com/Yashee05/mealprep-kit.git
 
 2.Place the folder inside your local server directory (e.g., htdocs for XAMPP).
 
@@ -30,7 +44,8 @@ Database: MySQL
 5.Open the site in your browser:
     http://localhost/mealprep-kit/home.html
 
-📩 Contact 
+## 📩 Contact
+
 If you'd like to connect or collaborate, feel free to reach out:
   📧 yashichaudhary035@gmail.com
 
