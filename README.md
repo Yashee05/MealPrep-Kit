@@ -25,7 +25,7 @@ Database: MySQL
 ### ⚙️ How to Run Locally
 
 1.Clone this repo:
-    <pre> ```git clone https://github.com/Yashee05/mealprep-kit.git```</pre>
+    <pre> ```git clone https://github.com/Yashee05/MealPrep-Kit.git```</pre>
 
 2.Place the folder inside your local server directory (e.g., htdocs for XAMPP).
 
@@ -34,7 +34,7 @@ Database: MySQL
 4.Import the database from db/mealprep.sql into phpMyAdmin.
 
 5.Open the site in your browser:
-    <pre> ```http://localhost/mealprep-kit/home.html```</pre>
+    <pre> ```http://localhost/MealPrep-Kit/home.html```</pre>
 
 ### 📩 Contact
 
