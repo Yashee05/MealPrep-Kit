@@ -1,0 +1,115 @@
+:root {
+    --primary-color: #a8dea2;
+    --secondary-color: #97b48e;
+    --tertiary-color: #53960a;
+    --text-dark: #212529;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --header-font-1: "Alfa Slab One", serif;
+    --header-font-2: "Bebas Neue", sans-serif;
+  }
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: #464646;
+}
+.contentBox{
+    
+    margin: auto;
+}
+.item {
+    display: flex;
+    /*gap: 30px; */
+    justify-content: space-around;
+}
+.leftbox img{
+    height: 600px;
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px;
+    transition: all 0.6s linear 0s;
+}
+/* .leftbox img:hover {
+    transform: scale(1.1);
+} 
+/* .contentBox {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.rightbox, .content{
+    display: flex;
+    flex-direction: column;
+    
+    margin-right: 2rem;
+}
+
+.media{
+    display: flex;
+    flex-direction: row;
+}
+.rightbox h2{
+    font-size: 2rem;
+    margin-top: 70px;
+    color: #53960a;
+}
+.rightbox h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+.ingbox, .instbox {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.75rem;
+}
+.recipiebox {
+    font-size: 1.2rem;
+}
+
+ .mediaright, .mediabody {
+    display: table-cell;
+    vertical-align: top;
+}
+.mediabody {
+    display: table-cell;
+    vertical-align: top;
+    margin-right: 10rem;
+}
+.medialeft2 {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 15px;
+}
+
+.medialeft, .media > .pull-left {
+    padding-right: 10px;
+}
+.serving {
+    color: #1eb392;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.leftbox, .btn{
+    text-align: center;
+}
+.btn {
+    width: 600px;
+    display: flex;
+    align-self: auto;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--tertiary-color);
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-color);
+  }
