@@ -7,7 +7,7 @@ MealPrep Kit is a web-based application designed to make healthy home cooking ea
 
 **📦 Meal Kits:** Each selection includes pre-cut vegetables, protein, spices, and instructions.
 
-**🛒 Add to Cart / Wishlist:** Choose your meals and save favorites for later.
+**🛒 Add to Cart:** Choose your meals.
 
 **🧾 Instructions with Ingredients:** View all ingredients and cooking instructions before ordering.
 
