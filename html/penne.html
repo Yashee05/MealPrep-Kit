@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Penne Arrabbiata Recipe</title>
+  <style>
+    :root {
+      --primary-color: #a8dea2;
+      --secondary-color: #97b48e;
+      --tertiary-color: #53960a;
+      --text-dark: #212529;
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font-1: "Alfa Slab One", serif;
+      --header-font-2: "Bebas Neue", sans-serif;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #464646;
+    }
+    .contentBox {
+      margin: auto;
+    }
+    .item {
+      display: flex;
+      justify-content: space-around;
+    }
+    .leftbox img {
+      height: 600px;
+      margin-top: 70px;
+      margin-left: 50px;
+      margin-right: 50px;
+      border-radius: 10px;
+      transition: all 0.6s linear 0s;
+    }
+    .rightbox, .content {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2rem;
+    }
+    .media {
+      display: flex;
+      flex-direction: row;
+    }
+    .rightbox h2 {
+      font-size: 2rem;
+      margin-top: 70px;
+      color: #53960a;
+    }
+    .rightbox h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .ingbox, .instbox {
+      margin-bottom: 2rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.75rem;
+    }
+    .recipiebox {
+      font-size: 1.2rem;
+    }
+    .mediaright, .mediabody {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .mediabody {
+      margin-right: 10rem;
+    }
+    .medialeft {
+      padding-right: 10px;
+    }
+    .serving {
+      color: #1eb392;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .leftbox, .btn {
+      text-align: center;
+    }
+    .btn {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+      color: var(--white);
+      background-color: var(--tertiary-color);
+      transition: 0.3s;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+    .btn:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Popup styling */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .popup-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      width: 400px;
+      margin: 15% auto;
+    }
+    .popup-content h2 {
+      color: green;
+      margin-bottom: 20px;
+    }
+    .popup-content button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: var(--tertiary-color);
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+    .popup-content button:hover {
+      background-color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+<div class="contentBox">
+  <section>
+    <div class="item">
+      <div class="leftbox">
+        <img src="penne.jpg" alt="Penne Arrabbiata">
+
+        <form id="addToCartForm" style="text-align: center; margin-top: 20px;">
+          <input type="hidden" name="recipe" value="Penne Arrabbiata">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="price" value="450">
+          <button type="submit" class="btn">ADD TO CART</button>
+        </form>
+      </div>
+
+      <div class="rightbox">
+        <h2>Penne Arrabbiata</h2>
+        <div class="media">
+          <div class="medialeft">
+            <img src="clock.png" alt="clock-icon" style="width: 30px; height: 30px;">
+          </div>
+          <div class="mediabody">
+            <p style="margin-top: 5px; color: black;">10-15 min</p>
+          </div>
+        </div>
+
+        <p class="serving">Rs. 450/serving</p>
+
+        <div class="content">
+          <h3>Ingredients</h3>
+          <ul class="ingbox">
+            <li>Pre-cooked penne pasta and pre-minced garlic</li>
+            <li>Ready-made spicy tomato sauce</li>
+            <li>Red chili flakes</li>
+            <li>Olive oil</li>
+            <li>Pre-chopped parsley</li>
+          </ul>
+        </div>
+
+        <div class="content">
+          <h3>Instructions</h3>
+          <ol class="instbox">
+            <li>Heat olive oil in a pan and sauté garlic with red chili flakes.</li>
+            <li>Add the ready-made spicy tomato sauce and let it simmer.</li>
+            <li>Toss in the pre-cooked penne pasta and mix well.</li>
+            <li>Garnish with parsley and serve hot.</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>Added to Cart Successfully!</h2>
+    <button onclick="window.location.href='cart.php'">View Cart</button>
+    <button onclick="closePopup()">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+  const form = document.getElementById('addToCartForm');
+  const popup = document.getElementById('popup');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // stop form from reloading
+    const formData = new FormData(form);
+
+    fetch('add_to_cart.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        popup.style.display = 'block'; // show the popup
+      } else {
+        alert('Failed to add to cart. Please try again.');
+      }
+    })
+    .catch(error => {
+      alert('Error adding to cart.');
+    });
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

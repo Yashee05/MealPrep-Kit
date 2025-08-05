@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BUTTER PANEER RECIPE</title>
+  <style>
+    :root {
+      --primary-color: #a8dea2;
+      --secondary-color: #97b48e;
+      --tertiary-color: #53960a;
+      --text-dark: #212529;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #464646;
+    }
+
+    .contentBox {
+      margin: auto;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .leftbox img {
+      height: 600px;
+      margin-top: 70px;
+      margin-left: 50px;
+      margin-right: 50px;
+      border-radius: 10px;
+      transition: all 0.6s linear 0s;
+    }
+
+    .rightbox, .content {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2rem;
+    }
+
+    .media {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .rightbox h2 {
+      font-size: 2rem;
+      margin-top: 70px;
+      color: var(--tertiary-color);
+    }
+
+    .rightbox h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .ingbox, .instbox {
+      margin-bottom: 2rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.75rem;
+    }
+
+    .serving {
+      color: #1eb392;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      border: none;
+      font-size: 1rem;
+      color: var(--white);
+      background-color: var(--tertiary-color);
+      transition: 0.3s;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-left: 50px;
+      border-radius: 8px;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 320px;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 20px;
+      color: var(--tertiary-color);
+    }
+
+    .popup-content button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: var(--tertiary-color);
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .popup-content button:hover {
+      background-color: var(--primary-color);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="contentBox">
+  <section>
+    <div class="item">
+      <div class="leftbox">
+        <img src="paneer11.jpg" alt="Butter Paneer">
+        <!-- Add to Cart Form -->
+        <form id="addToCartForm" style="text-align: center; margin-top: 20px;">
+          <input type="hidden" name="recipe" value="BUTTER PANEER">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="price" value="350">
+          <button type="submit" class="btn">ADD TO CART</button>
+        </form>
+      </div>
+
+      <div class="rightbox">
+        <h2>BUTTER PANEER</h2>
+        <div class="media">
+          <div class="medialeft">
+            <img src="clock.png" alt="Time" style="width: 30px; height: 30px;">
+          </div>
+          <div class="mediabody">
+            <p style="margin-top: 5px; color: black;">5-10 min</p>
+          </div>
+        </div>
+
+        <p class="serving">Rs. 350/serving</p>
+
+        <div class="content">
+          <h3>Ingredients</h3>
+          <ul class="ingbox">
+            <li>Pre-cut paneer cubes</li>
+            <li>Ready-made makhani gravy (tomato-cashew base)</li>
+            <li>Pre-mixed spice blend (garam masala, kasuri methi, chili powder)</li>
+            <li>Pre-boiled cream or butter for finishing</li>
+            <li>Pre-chopped coriander for garnish</li>
+          </ul>
+        </div>
+
+        <div class="content">
+          <h3>Instructions</h3>
+          <ol class="instbox">
+            <li>Heat the ready-made makhani gravy in a pan.</li>
+            <li>Add the pre-cut paneer cubes and simmer for 3-4 minutes.</li>
+            <li>Stir in cream/butter and cook for another minute.</li>
+            <li>Garnish with coriander and serve hot with naan or rice.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Popup Modal -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>Added to Cart Successfully!</h2>
+    <button onclick="window.location.href='cart.php'">View Cart</button>
+    <button onclick="closePopup()">Continue Shopping</button>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('addToCartForm');
+  const popup = document.getElementById('popup');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form from submitting normally
+
+    const formData = new FormData(form);
+
+    fetch('add_to_cart.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        popup.style.display = 'flex'; // Show popup
+      } else {
+        alert('Failed to add to cart.');
+      }
+    })
+    .catch(error => {
+      alert('Error occurred. Please try again.');
+    });
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

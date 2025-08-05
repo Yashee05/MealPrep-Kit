@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rajma Chawal | Meal Prep Kit</title>
+    <style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+        color: #464646;
+      }
+      .contentBox {
+        width: 90%;
+        margin: auto;
+      }
+      .item {
+        display: flex;
+        justify-content: space-around;
+      }
+      .leftbox img {
+        height: 600px;
+        margin: 40px;
+        border-radius: 10px;
+        transition: all 0.6s linear 0s;
+      }
+      .leftbox img:hover {
+        transform: scale(1.1);
+      }
+      .rightbox,
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
+      .media {
+        display: flex;
+        flex-direction: row;
+      }
+      .rightbox h2 {
+        font-size: 2rem;
+        margin-top: 40px;
+        color: #53960a;
+      }
+      .rightbox h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .ingbox {
+        gap: 10px;
+        font-size: 1.2rem;
+      }
+      .recipiebox {
+        font-size: 1.2rem;
+      }
+      .medialeft,
+      .mediaright,
+      .mediabody {
+        display: table-cell;
+        vertical-align: top;
+      }
+      .medialeft2 {
+        display: table-cell;
+        vertical-align: top;
+        margin-left: 50px;
+      }
+      .medialeft,
+      .media > .pull-left {
+        padding-right: 10px;
+      }
+      .serving {
+        color: #1eb392;
+        font-size: 15px;
+        margin-bottom: 30px;
+      }
+      .btn {
+        width: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: white;
+        background-color: #53960a;
+        transition: 0.3s;
+        cursor: pointer;
+        margin: 20px 40px;
+        border-radius: 8px;
+      }
+      .btn:hover {
+        background-color: #a8dea2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contentBox">
+      <section>
+        <div class="item">
+          <div class="leftbox">
+            <img src="rajma12.jpg" alt="Rajma Chawal" />
+
+            <!-- ✅ ADD TO CART FORM -->
+            <form action="add_to_cart.php" method="POST" style="text-align: center;">
+              <input type="hidden" name="recipe" value="RAJMA CHAWAL" />
+              <input type="hidden" name="quantity" value="1" />
+              <input type="hidden" name="price" value="350" />
+              <button type="submit" class="btn">ADD TO CART</button>
+            </form>
+          </div>
+
+          <div class="rightbox">
+            <h2>RAJMA CHAWAL</h2>
+            <div class="media">
+              <div class="medialeft">
+                <img src="clock.png" alt="Time icon" style="width: 30px; height: 30px;" />
+              </div>
+              <div class="mediabody">
+                <p style="margin-top: 5px; color: black;">10-15 min</p>
+              </div>
+
+              <div class="medialeft2">
+                <img src="rice.png" alt="Rice icon" style="width: 30px; height: 30px;" />
+              </div>
+              <div class="mediabody">
+                <p style="margin-top: 5px; color: black;">Needed</p>
+              </div>
+            </div>
+
+            <p class="serving">Rs. 350/serving</p>
+
+            <div class="content">
+              <table border="1px">
+                <h3>Ingridients</h3>
+                <ul class="ingbox">
+                  <li>Pre-soaked and boiled kidney beans (rajma)</li>
+                  <li>Ready-made tomato-onion gravy (pureed and pre-cooked)</li>
+                  <li>Pre-mixed spice blend (cumin, coriander, garam masala, turmeric, chili powder)</li>
+                  <li>Pre-boiled rice</li>
+                  <li>Pre-chopped coriander for garnish</li>
+                </ul>
+              </table>
+            </div>
+
+            <div class="content">
+              <table border="1px">
+                <h3>Recipie</h3>
+                <ol class="recipiebox">
+                  <li>Heat oil in a pan and add the pre-made tomato-onion gravy.</li>
+                  <li>Add the spice mix and stir well.</li>
+                  <li>Add the boiled kidney beans and let it simmer for 5 minutes.</li>
+                  <li>Garnish with coriander and serve with pre-boiled rice.</li>
+                </ol>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

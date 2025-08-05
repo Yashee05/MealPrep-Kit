@@ -1,0 +1,363 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s;
+    }
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+      animation: fadeIn 1.5s;
+    }
+    .card {
+      background: white;
+      border: 2px solid #4CAF50;
+      border-radius: 15px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .card button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 1rem;
+      margin: 1rem;
+      width: 80%;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .card button:hover {
+      background-color: #45a049;
+    }
+    .section {
+      display: none;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 1s;
+    }
+    .back-btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .back-btn:hover {
+      background-color: #45a049;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Admin Dashboard</header>
+
+  <div id="dashboard" class="dashboard">
+    <div class="card">
+      <img src="Cart1.jpg" alt="Cart Management">
+      <button onclick="openSection('cartMgmt')">Cart Management</button>
+    </div>
+    <div class="card">
+      <img src="Menu1.jpg" alt="Menu Management">
+      <button onclick="openSection('menuMgmt')">Menu Management</button>
+    </div>
+    <div class="card">
+      <img src="User1.jpg" alt="User Management">
+      <button onclick="openSection('userMgmt')">User Management</button>
+    </div>
+  </div>
+
+  
+
+   <- Cart Management Section 
+  <div id="cartMgmt" class="section">
+    <h2>Cart Management</h2>
+    <p>Manage all cart operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <!-- Menu Management Section 
+  <div id="menuMgmt" class="section">
+    <h2>Menu Management</h2>
+    <p>Manage all order operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <!-- User Management Section 
+  <div id="userMgmt" class="section">
+    <h2>User Management</h2>
+    <p>Manage all user operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    function openSection(sectionId) {
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function goBack() {
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById('dashboard').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <style>
+    /* General styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body {
+      background: white;
+      color: #333;
+    }
+
+    /* Background Video */
+    .bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      opacity: 0.7;
+      object-fit: cover;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s;
+    }
+
+    /* Dashboard Cards */
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem;
+      animation: fadeIn 1.5s;
+    }
+    .card {
+      background: white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 450px;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .card button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 1rem;
+      margin-top: 1rem;
+      width: 90%;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .card button:hover {
+      background-color: #45a049;
+    }
+
+    /* Section Pages */
+    .section {
+      display: none;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 1s;
+    }
+
+    /* Buttons */
+    .back-btn, .return-btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .back-btn:hover, .return-btn:hover {
+      background-color: #45a049;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="videotry2.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Header -->
+  <header>Admin Dashboard</header>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="dashboard">
+    <div class="card">
+      <img src="Cart1.jpg" alt="Cart Management">
+      <button onclick="window.location.href='admin_cart.php'">Cart Management</button>
+    </div>
+    <!--<div class="card">
+      <img src="Menu1.jpg" alt="Menu Management">
+      <button onclick="openSection('menuMgmt')">Menu Management</button>
+    </div>-->
+    <div class="card">
+      <img src="User1.jpg" alt="User Management">
+      <!--<button onclick="window.location.href='adminusermanage.php'">User Management</button>-->
+      <a href="adminusermanage.php"><button>User Management</button></a>
+    </div>
+
+    <!-- Return Button at End of Dashboard -->
+    <button class="return-btn" onclick="window.location.href='home.html'">Return</button>
+  </div>
+
+  <!-- Sections -->
+
+  <!-- Cart Management 
+  <div id="cartMgmt" class="section">
+    <h2>Cart Management</h2>
+    <p>Manage all cart operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>-->
+
+  <!-- Order Management -->
+  <div id="menuMgmt" class="section">
+    <h2>Menu Management</h2>
+    <p>Manage all order operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <!-- User Management -->
+  <div id="userMgmt" class="section">
+    <h2>User Management</h2>
+    <p>Manage all user operations here.</p>
+    <button class="back-btn" onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    function openSection(sectionId) {
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function goBack() {
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById('dashboard').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Margherita Pizza Recipe</title>
+  <style>
+    :root {
+      --primary-color: #a8dea2;
+      --secondary-color: #97b48e;
+      --tertiary-color: #53960a;
+      --text-dark: #212529;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #464646;
+    }
+    .contentBox {
+      margin: auto;
+    }
+    .item {
+      display: flex;
+      justify-content: space-around;
+    }
+    .leftbox img {
+      height: 600px;
+      margin: 70px 50px 0 50px;
+      border-radius: 10px;
+      transition: all 0.6s linear 0s;
+    }
+    .rightbox, .content {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2rem;
+    }
+    .media {
+      display: flex;
+      flex-direction: row;
+    }
+    .rightbox h2 {
+      font-size: 2rem;
+      margin-top: 70px;
+      color: var(--tertiary-color);
+    }
+    .rightbox h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .ingbox, .instbox {
+      margin-bottom: 2rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.75rem;
+    }
+    .serving {
+      color: #1eb392;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .leftbox, .btn {
+      text-align: center;
+    }
+    .btn {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      border: none;
+      font-size: 1rem;
+      color: var(--white);
+      background-color: var(--tertiary-color);
+      cursor: pointer;
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+    .btn:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Popup Style */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .popup-content button {
+      width: 48%;
+      margin: 10px 1%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="contentBox">
+  <section>
+    <div class="item">
+      <div class="leftbox">
+        <img src="pizza.jpg" alt="Margherita Pizza" />
+
+        <!-- ✅ UPDATED AJAX FORM -->
+        <form id="addToCartForm" style="text-align: center; margin-top: 20px;">
+          <input type="hidden" name="recipe" value="Margherita Pizza">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="price" value="450">
+          <button type="submit" class="btn">ADD TO CART</button>
+        </form>
+      </div>
+
+      <div class="rightbox">
+        <h2>Margherita Pizza</h2>
+        <div class="media">
+          <div class="medialeft">
+            <img src="clock.png" alt="Time" style="width: 30px; height: 30px;">
+          </div>
+          <div class="mediabody">
+            <p style="margin-top: 5px; color: black;">5-10 min</p>
+          </div>
+        </div>
+
+        <p class="serving">Rs. 460/serving</p>
+
+        <div class="content">
+          <h3>Ingredients</h3>
+          <ul class="ingbox">
+            <li>Pre-made pizza dough</li>
+            <li>Ready-made tomato sauce</li>
+            <li>Pre-sliced fresh mozzarella</li>
+            <li>Fresh basil leaves</li>
+            <li>Olive oil</li>
+          </ul>
+        </div>
+
+        <div class="content">
+          <h3>Instructions</h3>
+          <ol class="instbox">
+            <li>Spread tomato sauce over the pre-made pizza dough.</li>
+            <li>Arrange mozzarella slices on top.</li>
+            <li>Bake at 200°C (400°F) for 10-12 minutes until the cheese melts.</li>
+            <li>Garnish with fresh basil and drizzle olive oil before serving.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ✅ POPUP MODAL -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <h2>Item Added to Cart!</h2>
+    <p>Your Margherita Pizza has been added to your cart.</p>
+    <div style="display: flex; justify-content: space-between;">
+      <button onclick="continueShopping()" class="btn">Continue Shopping</button>
+      <button onclick="viewCart()" class="btn">View Cart</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Popup logic
+  function showPopup() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function continueShopping() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  function viewCart() {
+    window.location.href = 'cart.php';
+  }
+
+  // ✅ AJAX form submission logic
+  document.getElementById('addToCartForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'add_to_cart.php', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        showPopup();
+      } else {
+        alert('Error adding item to cart.');
+      }
+    };
+    xhr.send(formData);
+  });
+</script>
+
+</body>
+</html>
