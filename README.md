@@ -31,7 +31,7 @@ Database: MySQL
 
 3.Start Apache and MySQL using XAMPP.
 
-4.Import the database from db/mealprep.sql into phpMyAdmin.
+4.Import the database.
 
 5.Open the site in your browser:
     <pre> ```http://localhost/MealPrep-Kit/home.html```</pre>
